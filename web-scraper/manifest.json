@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "OCR and Screenshot Extension",
+  "version": "1.0",
+  "description": "",
+  "permissions": ["activeTab", "scripting", "storage", "downloads", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon16.png",
+      "128": "images/icon16.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon16.png",
+    "128": "images/icon16.png"
+  },
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "tesseract.min.js",
+        "content.js"
+      ]
+    }
+  ]
+}
